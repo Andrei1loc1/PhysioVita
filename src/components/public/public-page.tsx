@@ -149,12 +149,12 @@ function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,oklch(0.62_0.1_35/0.1),transparent_55%)]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 w-full pt-6 sm:pt-28 pb-16 flex flex-col justify-end lg:justify-center min-h-[100dvh] lg:min-h-0 lg:grid lg:grid-cols-[1.2fr_1fr] gap-6 lg:gap-8 overflow-visible" style={{ overflow: 'visible' }}>
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 w-full pt-6 sm:pt-28 pb-8 flex flex-col justify-end lg:justify-center min-h-[100dvh] lg:min-h-0 lg:grid lg:grid-cols-[1.2fr_1fr] gap-6 lg:gap-8 overflow-visible" style={{ overflow: 'visible' }}>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
-          className="h-[42vh] sm:h-[48vh] lg:h-[440px] xl:h-[500px] order-1 lg:order-2 overflow-visible lg:mt-12"
+          className="h-[36vh] sm:h-[48vh] lg:h-[440px] xl:h-[500px] order-1 lg:order-2 overflow-visible lg:mt-12"
           style={{ overflow: 'visible' }}
         >
           <HeroSpine3D />
@@ -164,7 +164,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
-          className="order-2 lg:order-1"
+          className="order-2 lg:order-1 -mt-4 sm:-mt-6 lg:mt-0"
         >
           <div className="inline-flex items-center gap-2 bg-white/[0.08] backdrop-blur-md border border-white/[0.12] rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-white/90 mb-3 sm:mb-4">
             <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_12px_oklch(0.72_0.16_155/0.6)] animate-pulse" />
