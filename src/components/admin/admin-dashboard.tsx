@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sidebar } from "./sidebar";
-import { MobileTopBar } from "./mobile-top-bar";
-import { MobileBottomNav } from "./mobile-bottom-nav";
-import { CommandCenter } from "./command-center";
-import { AppointmentsTab } from "./appointments-tab";
-import { PatientsTab } from "./patients-tab";
-import { StatsTab } from "./stats-tab";
+import { Sidebar, MobileTopBar, MobileBottomNav } from "./layout";
+import { CommandCenter } from "./dashboard";
+import { AppointmentsTab } from "./appointments";
+import { PatientsTab } from "./patients";
+import { StatsTab } from "./stats";
 
 export function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("dashboard");

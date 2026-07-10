@@ -1,0 +1,1 @@
+export { AppointmentsTab } from "./appointments-tab";

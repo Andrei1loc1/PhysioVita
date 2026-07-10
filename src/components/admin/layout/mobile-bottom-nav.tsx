@@ -1,6 +1,6 @@
 "use client";
 
-import { NAV_ITEMS } from "./constants";
+import { NAV_ITEMS } from "../constants";
 
 export function MobileBottomNav({ activeTab, setActiveTab }: { activeTab: string; setActiveTab: (t: string) => void }) {
   return (

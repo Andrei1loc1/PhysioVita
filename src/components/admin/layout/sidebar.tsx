@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Activity, Settings, LogOut } from "lucide-react";
-import { NAV_ITEMS } from "./constants";
+import { NAV_ITEMS } from "../constants";
 
 export function Sidebar({ activeTab, setActiveTab }: { activeTab: string; setActiveTab: (t: string) => void }) {
   return (

@@ -9,7 +9,7 @@ import dynamic from "next/dynamic";
 
 const HeroSpine3D = dynamic(
   () =>
-    import("@/components/public/hero-spine-3d").then((m) => m.HeroSpine3D),
+    import("./hero-spine-3d").then((m) => m.HeroSpine3D),
   { ssr: false, loading: () => null }
 );
 
@@ -107,7 +107,7 @@ function HeroSection() {
             ))}
           </motion.div>
          </motion.div>
-       </div>
+        </div>
 
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 animate-bounce text-white/30 sm:hidden">
         <ArrowDown className="w-5 h-5" />

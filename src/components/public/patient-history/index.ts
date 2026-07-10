@@ -1,0 +1,1 @@
+export { PatientHistoryFeature } from "./patient-history-feature";

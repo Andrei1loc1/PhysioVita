@@ -4,8 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Plus, Users, BarChart3, Send } from "lucide-react";
 import { APPOINTMENTS } from "@/lib/data";
-import { STATUS_MAP } from "./constants";
-import { WeeklyCalendar } from "./weekly-calendar";
+import { STATUS_MAP } from "../constants";
+import { WeeklyCalendar } from "../dashboard";
 
 export function AppointmentsTab() {
   const [appointments, setAppointments] = useState(APPOINTMENTS);

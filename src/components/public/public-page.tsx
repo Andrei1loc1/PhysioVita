@@ -4,17 +4,16 @@ import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { SERVICES } from "@/lib/data";
 import { Navbar } from "@/components/public/navbar";
-import { HeroSection } from "@/components/public/hero-section";
-import { ServicesSection } from "@/components/public/services-section";
-import { HowItWorksSection } from "@/components/public/how-it-works-section";
-import { TeamSection } from "@/components/public/team-section";
-import { ReviewsSection } from "@/components/public/reviews-section";
-import { WhatsAppFeature } from "@/components/public/whatsapp-feature";
-import { PatientHistoryFeature } from "@/components/public/patient-history-feature";
-import { CTASection } from "@/components/public/cta-section";
-import { LocationSection } from "@/components/public/location-section";
+import { HeroSection } from "@/components/public/hero";
+import { ServicesSection, ServiceModal } from "@/components/public/services";
+import { HowItWorksSection } from "@/components/public/how-it-works";
+import { TeamSection } from "@/components/public/team";
+import { ReviewsSection } from "@/components/public/reviews";
+import { WhatsAppFeature } from "@/components/public/whatsapp";
+import { PatientHistoryFeature } from "@/components/public/patient-history";
+import { CTASection } from "@/components/public/booking";
+import { LocationSection } from "@/components/public/location";
 import { Footer } from "@/components/public/footer";
-import { ServiceModal } from "@/components/public/service-modal";
 
 export function PublicPage() {
   const [selectedService, setSelectedService] = useState<number | null>(null);

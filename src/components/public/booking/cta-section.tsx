@@ -1,6 +1,6 @@
 "use client";
 
-import { BookingCalendar } from "@/components/public/booking-calendar";
+import { BookingCalendar } from "./booking-calendar";
 
 function CTASection() {
   return (
