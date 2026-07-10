@@ -70,10 +70,30 @@ When the user says something like "transform this into a dental clinic called De
 - Also update `--color-sage`, `--color-sage-light`, `--color-sage-dark`, `--color-cream`, `--color-terracotta` in `@theme inline`
 - Keep the same structure — just swap color values
 
+### MANDATORY: Verify image URLs
+After replacing image URLs in `site.config.ts` and `data.ts`, you MUST verify every new Unsplash URL returns HTTP 200 before considering the transformation complete. Run this in PowerShell:
+
+```powershell
+$urls = @(
+  # Paste all new image URLs here
+)
+foreach ($url in $urls) {
+  try {
+    $resp = Invoke-WebRequest -Uri $url -Method Head -TimeoutSec 10 -UseBasicParsing
+    Write-Output "$($resp.StatusCode) OK - $($url.Substring(0,60))..."
+  } catch {
+    Write-Output "FAIL - $($url.Substring(0,60))... - $($_.Exception.Message)"
+  }
+}
+```
+
+If any URL returns FAIL, replace it with a working Unsplash image for the niche. Do NOT leave broken image URLs.
+
 ### NEVER do these:
 - Do NOT modify any file in `src/components/` — they read from config/data
 - Do NOT change component structure, styling, or layout per niche
 - Do NOT add new components for a niche change
+- Do NOT leave unverified image URLs
 
 ## Design system (unchanged across niches)
 
