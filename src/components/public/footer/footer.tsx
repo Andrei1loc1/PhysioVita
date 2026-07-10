@@ -1,4 +1,5 @@
 import { SERVICES } from "@/lib/data";
+import { site } from "@/config/site.config";
 
 function Footer() {
   return (
@@ -7,10 +8,10 @@ function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
           <div className="col-span-2 md:col-span-2">
             <div className="font-[family-name:var(--font-heading)] text-xl sm:text-2xl font-extrabold tracking-tight mb-3 sm:mb-4">
-              Physio<span className="text-sage-light">Vita</span>
+              {site.brand.prefix}<span className="text-sage-light">{site.brand.highlight}</span>
             </div>
             <p className="text-white/45 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Clinica de fizioterapie și recuperare medicală unde fiecare pacient primește atenția pe care o merită.
+              {site.footerTagline}
             </p>
           </div>
           <div>
@@ -35,15 +36,15 @@ function Footer() {
               Contact
             </h5>
             <ul className="space-y-1.5 sm:space-y-2.5 text-xs sm:text-sm text-white/55">
-              <li>Str. Recuperării nr. 15</li>
-              <li>București, Sector 2</li>
-              <li>+40 721 234 567</li>
-              <li>contact@physiovita.ro</li>
+              <li>{site.contact.address}</li>
+              <li>{site.contact.city}, {site.contact.postalCode}</li>
+              <li>{site.contact.phone}</li>
+              <li>{site.contact.email}</li>
             </ul>
           </div>
         </div>
         <div className="border-t border-white/10 mt-8 sm:mt-10 pt-5 sm:pt-6 flex flex-col sm:flex-row justify-between items-center text-[10px] sm:text-xs text-white/30 gap-2">
-          <span>© 2025 PhysioVita. Toate drepturile rezervate.</span>
+          <span>© 2025 {site.brand.full}. Toate drepturile rezervate.</span>
           <span>Politica de confidențialitate · Termeni și condiții</span>
         </div>
       </div>

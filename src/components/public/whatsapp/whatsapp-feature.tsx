@@ -2,6 +2,7 @@
 
 import { MessageCircle, CheckCircle2 } from "lucide-react";
 import { FadeInUp, ScaleIn } from "@/components/shared/animations";
+import { site } from "@/config/site.config";
 
 function WhatsAppFeature() {
   return (
@@ -48,7 +49,7 @@ function WhatsAppFeature() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="text-white font-semibold text-xs sm:text-sm">
-                        PhysioVita
+                        {site.brand.full}
                       </div>
                       <div className="flex items-center gap-1">
                         <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />

@@ -2,6 +2,7 @@
 
 import { MapPin, Clock, Phone } from "lucide-react";
 import { FadeInUp } from "@/components/shared/animations";
+import { site } from "@/config/site.config";
 
 function LocationSection() {
   return (
@@ -15,15 +16,15 @@ function LocationSection() {
             Vino la clinica noastră
           </h2>
           <p className="text-muted-foreground text-xs sm:text-base max-w-lg leading-relaxed mb-6 sm:mb-10">
-            Situată în centrul Bucureștiului, clinica noastră este ușor accesibilă cu transportul în comun sau cu mașina.
+            {site.contact.mapDescription}
           </p>
         </FadeInUp>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-auto lg:min-h-[400px]">
             <iframe
-              title="Locație PhysioVita"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.1586328875437!2d21.2266!3d45.7489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47455e80e7f23e89%3A0x3d0c7e1e0e8f12c5!2sTimi%C8%99oara!5e0!3m2!1sro!2sro!4v1700000000000!5m2!1sro!2sro"
+              title={`Locație ${site.brand.full}`}
+              src={site.contact.mapEmbedUrl}
               width="100%"
               height="100%"
               style={{ border: 0, filter: "saturate(0.85) contrast(1.05)" }}
@@ -44,7 +45,7 @@ function LocationSection() {
                   </div>
                   <div>
                     <h3 className="font-[family-name:var(--font-heading)] text-sm sm:text-base font-bold tracking-tight mb-1">Adresă</h3>
-                    <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">Str. Recuperării nr. 15<br />Timișoara, 300001</p>
+                    <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{site.contact.address}<br />{site.contact.city}, {site.contact.postalCode}</p>
                   </div>
                 </div>
               </div>
@@ -59,9 +60,9 @@ function LocationSection() {
                   <div>
                     <h3 className="font-[family-name:var(--font-heading)] text-sm sm:text-base font-bold tracking-tight mb-1">Program</h3>
                     <div className="text-muted-foreground text-xs sm:text-sm space-y-0.5">
-                      <p>Luni — Vineri: <span className="text-foreground font-medium">08:00 — 20:00</span></p>
-                      <p>Sâmbătă: <span className="text-foreground font-medium">09:00 — 14:00</span></p>
-                      <p>Duminică: <span className="text-muted-foreground">Închis</span></p>
+                      <p>Luni — Vineri: <span className="text-foreground font-medium">{site.contact.schedule.weekdays}</span></p>
+                      <p>Sâmbătă: <span className="text-foreground font-medium">{site.contact.schedule.saturday}</span></p>
+                      <p>Duminică: <span className="text-muted-foreground">{site.contact.schedule.sunday}</span></p>
                     </div>
                   </div>
                 </div>
@@ -77,8 +78,8 @@ function LocationSection() {
                   <div>
                     <h3 className="font-[family-name:var(--font-heading)] text-sm sm:text-base font-bold tracking-tight mb-1">Contact</h3>
                     <div className="text-muted-foreground text-xs sm:text-sm space-y-0.5">
-                      <p><span className="text-foreground font-medium">+40 721 234 567</span></p>
-                      <p><span className="text-foreground font-medium">contact@physiovita.ro</span></p>
+                      <p><span className="text-foreground font-medium">{site.contact.phone}</span></p>
+                      <p><span className="text-foreground font-medium">{site.contact.email}</span></p>
                     </div>
                   </div>
                 </div>

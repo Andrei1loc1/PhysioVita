@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { CalendarDays, ArrowDown } from "lucide-react";
-import { HERO_IMAGE } from "@/lib/data";
+import { site } from "@/config/site.config";
 import { useCountUp } from "@/components/shared/use-count-up";
 import dynamic from "next/dynamic";
 
@@ -14,16 +14,17 @@ const HeroSpine3D = dynamic(
 );
 
 function HeroSection() {
-  const stat1 = useCountUp(15);
-  const stat2 = useCountUp(8500);
-  const stat3 = useCountUp(4.9);
+  const stat0 = useCountUp(site.hero.stats[0].value);
+  const stat1 = useCountUp(site.hero.stats[1].value);
+  const stat2 = useCountUp(site.hero.stats[2].value);
+  const stats = [stat0, stat1, stat2];
 
   return (
     <section className="relative min-h-[100dvh] flex items-center overflow-visible" style={{ overflow: 'visible' }}>
       <div className="absolute inset-0 z-0">
         <Image
-          src={HERO_IMAGE}
-          alt="Physiotherapy clinic"
+          src={site.hero.image}
+          alt={site.hero.imageAlt}
           fill
           className="object-cover object-center"
           priority
@@ -53,20 +54,19 @@ function HeroSection() {
         >
           <div className="inline-flex items-center gap-2 bg-white/[0.08] backdrop-blur-md border border-white/[0.12] rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-white/90 mb-3 sm:mb-4">
             <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_12px_oklch(0.72_0.16_155/0.6)] animate-pulse" />
-            Deschis — Programează-te azi
+            {site.hero.badge}
           </div>
 
           <h1 className="font-[family-name:var(--font-heading)] text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] sm:leading-[1.05] text-white mb-4 sm:mb-6">
-            Recuperarea ta,
+            {site.hero.titleLine1},
             <br className="hidden sm:block" />{" "}
             <span className="text-white" style={{ textShadow: '0 0 30px rgba(90,158,118,0.6), 0 0 60px rgba(90,158,118,0.3), 0 0 100px rgba(90,158,118,0.15)' }}>
-              prioritatea noastră
+              {site.hero.titleLine2}
             </span>
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-white/55 sm:text-white/60 max-w-md sm:max-w-lg leading-relaxed mb-6 sm:mb-10">
-            Echipă dedicată, tehnologie modernă și un plan de tratament
-            personalizat. Recâștigă-ți mobilitatea cu încredere.
+            {site.hero.subtitle}
           </p>
 
           <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -91,11 +91,9 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 0.61, 0.36, 1] }}
             className="flex gap-8 sm:gap-10 md:gap-16 mt-8 sm:mt-14"
           >
-            {[
-              { ref: stat1.ref, val: stat1.displayValue, label: "Ani experiență" },
-              { ref: stat2.ref, val: stat2.displayValue, label: "Pacienți" },
-              { ref: stat3.ref, val: stat3.displayValue, label: "Rating" },
-            ].map((s) => (
+            {stats.map((s, i) => ({
+              ref: s.ref, val: s.displayValue, label: site.hero.stats[i].label
+            })).map((s) => (
               <div key={s.label} className="text-white">
                 <span ref={s.ref} className="font-[family-name:var(--font-heading)] text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight block leading-none mb-0.5 sm:mb-1">
                   {s.val}

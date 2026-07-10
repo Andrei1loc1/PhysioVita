@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, CalendarDays } from "lucide-react";
+import { site } from "@/config/site.config";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +24,7 @@ function Navbar() {
       }`}
     >
       <div className="font-[family-name:var(--font-heading)] text-lg sm:text-xl font-extrabold tracking-tight text-foreground flex items-center gap-2">
-        Physio<span className="text-primary">Vita</span>
+        {site.brand.prefix}<span className="text-primary">{site.brand.highlight}</span>
       </div>
       <ul className="hidden lg:flex gap-8 list-none">
         {["Servicii", "Despre", "Echipa", "Programare", "Contact"].map(

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Activity, Settings, LogOut } from "lucide-react";
 import { NAV_ITEMS } from "../constants";
+import { site } from "@/config/site.config";
 
 export function Sidebar({ activeTab, setActiveTab }: { activeTab: string; setActiveTab: (t: string) => void }) {
   return (
@@ -12,7 +13,7 @@ export function Sidebar({ activeTab, setActiveTab }: { activeTab: string; setAct
           <Activity className="w-[18px] h-[18px] text-white" />
         </div>
         <div className="font-[family-name:var(--font-heading)] text-[20px] font-extrabold tracking-tight text-[#2a2a2a]">
-          Physio<span className="text-[#5a9e76]">Vita</span>
+          {site.brand.prefix}<span className="text-[#5a9e76]">{site.brand.highlight}</span>
         </div>
         <span className="text-[8px] font-bold uppercase tracking-[0.15em] text-[#6a6a6a] bg-[#f5f0e8] px-2 py-0.5 rounded-md ml-auto">
           Admin
@@ -60,11 +61,11 @@ export function Sidebar({ activeTab, setActiveTab }: { activeTab: string; setAct
       <div className="px-4 py-4 mx-3 mb-3 rounded-2xl bg-[#f5f0e8] border border-[#e8e0d4]">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#5a9e76] to-[#a8d5ba] flex items-center justify-center font-bold text-sm text-white shadow-md shadow-[#5a9e76]/20">
-            AP
+            {site.admin.doctorInitials}
           </div>
           <div className="min-w-0">
-            <div className="text-[13px] font-semibold text-[#2a2a2a] truncate">Dr. Andrei Popescu</div>
-            <div className="text-[10px] text-[#5a5a5a]">Medic specialist recuperare</div>
+            <div className="text-[13px] font-semibold text-[#2a2a2a] truncate">{site.admin.doctorName}</div>
+            <div className="text-[10px] text-[#5a5a5a]">{site.admin.doctorTitle}</div>
           </div>
         </div>
       </div>

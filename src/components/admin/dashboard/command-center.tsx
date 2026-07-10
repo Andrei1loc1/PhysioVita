@@ -3,6 +3,7 @@
 import { CalendarDays, CheckCircle2, Clock, XCircle } from "lucide-react";
 import { APPOINTMENTS } from "@/lib/data";
 import { FadeInUp } from "@/components/shared/animations";
+import { site } from "@/config/site.config";
 
 export function CommandCenter() {
   const nextPatient = APPOINTMENTS[0];
@@ -19,10 +20,10 @@ export function CommandCenter() {
               <span className="text-[10px] sm:text-xs font-semibold text-[#5a9e76] uppercase tracking-wider">Clinica deschisă</span>
             </div>
             <div className="font-[family-name:var(--font-heading)] text-xl sm:text-2xl md:text-[28px] font-bold tracking-tight text-[#2a2a2a] mb-1 sm:mb-2">
-              Bună dimineața, <span className="text-[#5a9e76]">Dr. Popescu</span>
+              {site.admin.greeting}, <span className="text-[#5a9e76]">{site.admin.doctorShortName}</span>
             </div>
             <div className="text-xs sm:text-sm text-[#5a5a5a] mb-4 sm:mb-6">
-              {new Date().toLocaleDateString("ro-RO", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
+              {new Date().toLocaleDateString(site.locale, { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
             </div>
             <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-white/70 backdrop-blur-sm border border-[#e0d8c8]">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center font-bold text-white text-sm sm:text-base shadow-lg flex-shrink-0" style={{ background: nextPatient.color }}>

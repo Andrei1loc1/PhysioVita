@@ -1,6 +1,7 @@
 "use client";
 
 import { Activity, Bell } from "lucide-react";
+import { site } from "@/config/site.config";
 
 export function MobileTopBar() {
   return (
@@ -11,7 +12,7 @@ export function MobileTopBar() {
         </div>
         <div>
           <div className="font-[family-name:var(--font-heading)] text-base font-bold tracking-tight text-[#2a2a2a]">
-            Physio<span className="text-[#5a9e76]">Vita</span>
+            {site.brand.prefix}<span className="text-[#5a9e76]">{site.brand.highlight}</span>
           </div>
           <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#6a6a6a]">Admin</div>
         </div>
