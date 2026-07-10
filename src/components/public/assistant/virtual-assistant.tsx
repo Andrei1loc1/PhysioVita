@@ -7,6 +7,50 @@ import { site } from "@/config/site.config";
 
 type Message = { role: "user" | "assistant"; content: string };
 
+function MarkdownText({ content }: { content: string }) {
+  const lines = content.split("\n");
+  const elements: React.ReactNode[] = [];
+
+  lines.forEach((line, i) => {
+    const trimmed = line.trim();
+    if (trimmed === "") return;
+
+    // Bullet list items
+    if (trimmed.startsWith("- ")) {
+      const text = trimmed.slice(2);
+      elements.push(
+        <div key={i} className="flex items-start gap-1.5 my-0.5">
+          <span className="w-1 h-1 rounded-full bg-primary/50 mt-[7px] flex-shrink-0" />
+          <span dangerouslySetInnerHTML={{ __html: renderInline(text) }} />
+        </div>
+      );
+      return;
+    }
+
+    // Regular paragraph line
+    elements.push(
+      <div key={i} className="my-0.5" dangerouslySetInnerHTML={{ __html: renderInline(trimmed) }} />
+    );
+  });
+
+  return <>{elements}</>;
+}
+
+function renderInline(text: string): string {
+  let html = text;
+
+  // Bold: **text**
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-primary">$1</strong>');
+
+  // Inline code: `text`
+  html = html.replace(
+    /`([^`]+)`/g,
+    '<code class="px-1.5 py-0.5 rounded-md bg-primary/8 text-primary text-[12px] font-semibold whitespace-nowrap">$1</code>'
+  );
+
+  return html;
+}
+
 function VirtualAssistant() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -139,13 +183,17 @@ function VirtualAssistant() {
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] px-3.5 py-2.5 rounded-2xl text-[13px] leading-relaxed ${
+                    className={`max-w-[88%] px-3.5 py-2.5 rounded-2xl text-[13px] leading-relaxed ${
                       msg.role === "user"
                         ? "bg-primary text-white rounded-br-md font-medium"
                         : "bg-white border border-border text-foreground rounded-bl-md"
                     }`}
                   >
-                    {msg.content}
+                    {msg.role === "assistant" ? (
+                      <MarkdownText content={msg.content} />
+                    ) : (
+                      msg.content
+                    )}
                   </div>
                 </div>
               ))}
