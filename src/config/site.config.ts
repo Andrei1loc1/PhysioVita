@@ -72,6 +72,25 @@ export const site = {
     greeting: "Bună dimineața",
   },
 
+  /** Virtual assistant */
+  assistant: {
+    name: "Asistent Virtual",
+    greeting: "Bună ziua! 👋 Cu ce te pot ajuta astăzi?",
+    placeholder: "Scrie un mesaj...",
+    quickQuestions: [
+      "Ce servicii oferiți?",
+      "Care sunt prețurile?",
+      "Cum pot programa o vizită?",
+      "Unde vă aflați?",
+    ],
+    suggestions: [
+      "Întreabă despre servicii",
+      "Întreabă despre prețuri",
+      "Vreau să programez",
+      "Unde vă aflați?",
+    ],
+  },
+
   /** Color palette (must match globals.css :root values) */
   colors: {
     primary: "#5a9e76",

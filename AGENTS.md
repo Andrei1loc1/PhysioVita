@@ -29,6 +29,7 @@ src/
 │   │   ├── patient-history/ ← static demo content
 │   │   ├── booking/         ← reads SERVICES from data.ts
 │   │   ├── location/        ← reads site.contact
+│   │   ├── assistant/       ← virtual assistant (reads site.assistant, calls /api/chat)
 │   │   └── footer/          ← reads site.brand, site.contact, SERVICES
 │   └── admin/
 │       ├── layout/          ← reads site.brand, site.admin
@@ -47,6 +48,7 @@ When the user says something like "transform this into a dental clinic called De
 - `brand`: new name (prefix, highlight, full)
 - `contact`: new address, city, phone, email, schedule, Google Maps embed URL, map description
 - `hero`: new image URL, badge text, title lines, subtitle, stats values+labels
+- `assistant`: greeting text, quick questions, suggestions for the virtual assistant
 - `footerTagline`: new tagline mentioning the niche
 - `admin`: new doctor name, title, initials, greeting
 - `colors`: new palette hex values (MUST match globals.css)
@@ -112,7 +114,17 @@ If any URL returns FAIL, replace it with a working Unsplash image for the niche.
 - Framer Motion
 - lucide-react icons
 - React Three Fiber (3D hero scene)
+- Ollama Cloud API (virtual assistant — GLM-5.2 model)
 - shadcn/ui components (available but mostly unused in custom UI)
+
+## Virtual Assistant
+
+The assistant is powered by Ollama Cloud API (OpenAI-compatible `/v1/chat/completions` endpoint).
+- API route: `src/app/api/chat/route.ts` — reads env vars `OLLAMA_CLOUD_URL`, `OLLAMA_MODEL`, `OLLAMA_CLOUD_API_KEY`
+- Component: `src/components/public/assistant/` — floating chat widget
+- System prompt is auto-generated from `site.config.ts` (brand, contact, services) — no manual setup needed
+- The assistant knows the niche, services, prices, schedule, and contact info automatically
+- When transforming for a new niche, the assistant adapts automatically from the config + data
 
 ## Build commands
 - `npx next build` — production build

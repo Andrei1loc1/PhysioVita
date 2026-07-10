@@ -14,6 +14,7 @@ import { PatientHistoryFeature } from "@/components/public/patient-history";
 import { CTASection } from "@/components/public/booking";
 import { LocationSection } from "@/components/public/location";
 import { Footer } from "@/components/public/footer";
+import { VirtualAssistant } from "@/components/public/assistant";
 
 export function PublicPage() {
   const [selectedService, setSelectedService] = useState<number | null>(null);
@@ -40,6 +41,8 @@ export function PublicPage() {
           />
         )}
       </AnimatePresence>
+
+      <VirtualAssistant />
     </main>
   );
 }
