@@ -40,9 +40,21 @@ src/
 └── shared/                  ← animations + useCountUp (niche-agnostic)
 ```
 
-## How to transform for a new niche
+## How to create a new niche variant
 
-When the user says something like "transform this into a dental clinic called DentalPro in Bucharest", edit ONLY these 3 files:
+When the user says something like "make a dental clinic called DentalPro in Bucharest", follow this workflow:
+
+### Step 1: Copy the project (MANDATORY — NEVER overwrite the template)
+```powershell
+# The template project stays untouched. Always create a COPY first.
+# Replace <NewName> with the new project name (e.g. DentalPro)
+Copy-Item -Path "C:\Users\Andrei\Documents\Fizioterapy project\physiorecovery" `
+          -Destination "C:\Users\Andrei\Documents\Fizioterapy project\<NewName>" `
+          -Recurse
+```
+Then `cd` into the new project folder. ALL subsequent edits happen in the COPY, not the original.
+
+### Step 2: Edit ONLY these 3 files in the copy
 
 ### 1. `src/config/site.config.ts` — Brand & contact identity
 - `brand`: new name (prefix, highlight, full)
@@ -92,6 +104,7 @@ foreach ($url in $urls) {
 If any URL returns FAIL, replace it with a working Unsplash image for the niche. Do NOT leave broken image URLs.
 
 ### NEVER do these:
+- Do NOT modify the template project in-place — ALWAYS copy first
 - Do NOT modify any file in `src/components/` — they read from config/data
 - Do NOT change component structure, styling, or layout per niche
 - Do NOT add new components for a niche change
