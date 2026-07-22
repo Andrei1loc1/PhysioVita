@@ -30,9 +30,15 @@ function HeroSection() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a3a2a]/90 via-[#2d5a3f]/85 to-[#4a3728]/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,oklch(0.72_0.07_155/0.2),transparent_55%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,oklch(0.62_0.1_35/0.1),transparent_55%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br" style={{
+          background: `linear-gradient(to bottom right, ${site.hero.overlay.gradientFrom}/${site.hero.overlay.gradientOpacity.from}, ${site.hero.overlay.gradientVia}/${site.hero.overlay.gradientOpacity.via}, ${site.hero.overlay.gradientTo}/${site.hero.overlay.gradientOpacity.to})`,
+        }} />
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(ellipse at 30% 20%, ${site.hero.overlay.radialGlow1}, transparent 55%)`,
+        }} />
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(ellipse at 80% 80%, ${site.hero.overlay.radialGlow2}, transparent 55%)`,
+        }} />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 w-full pt-6 sm:pt-28 pb-8 flex flex-col justify-end lg:justify-center min-h-[100dvh] lg:min-h-0 lg:grid lg:grid-cols-[1.2fr_1fr] gap-6 lg:gap-8 overflow-visible" style={{ overflow: 'visible' }}>
@@ -60,7 +66,7 @@ function HeroSection() {
           <h1 className="font-[family-name:var(--font-heading)] text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] sm:leading-[1.05] text-white mb-4 sm:mb-6">
             {site.hero.titleLine1},
             <br className="hidden sm:block" />{" "}
-            <span className="text-white" style={{ textShadow: '0 0 30px rgba(90,158,118,0.6), 0 0 60px rgba(90,158,118,0.3), 0 0 100px rgba(90,158,118,0.15)' }}>
+            <span className="text-white" style={{ textShadow: `0 0 30px ${site.hero.overlay.titleGlow},0.6), 0 0 60px ${site.hero.overlay.titleGlow},0.3), 0 0 100px ${site.hero.overlay.titleGlow},0.15)` }}>
               {site.hero.titleLine2}
             </span>
           </h1>

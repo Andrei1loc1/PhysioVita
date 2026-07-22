@@ -59,7 +59,7 @@ Then `cd` into the new project folder. ALL subsequent edits happen in the COPY, 
 ### 1. `src/config/site.config.ts` — Brand & contact identity
 - `brand`: new name (prefix, highlight, full)
 - `contact`: new address, city, phone, email, schedule, Google Maps embed URL, map description
-- `hero`: new image URL, badge text, title lines, subtitle, stats values+labels
+- `hero`: new image URL, badge text, title lines, subtitle, stats values+labels, AND `overlay` colors (gradient from/via/to, radial glows, title glow)
 - `assistant`: greeting text, quick questions, suggestions for the virtual assistant
 - `footerTagline`: new tagline mentioning the niche
 - `admin`: new doctor name, title, initials, greeting

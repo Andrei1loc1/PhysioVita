@@ -57,6 +57,23 @@ export const site = {
       { value: 8500, label: "Pacienți" },
       { value: 4.9, label: "Rating" },
     ],
+    /** Background overlay colors (dark gradient over hero image) */
+    overlay: {
+      /** Top-left color of gradient (darkest) */
+      gradientFrom: "#1a3a2a",
+      /** Middle color of gradient */
+      gradientVia: "#2d5a3f",
+      /** Bottom-right color of gradient */
+      gradientTo: "#4a3728",
+      /** Opacity values for from/via/to (0-100) */
+      gradientOpacity: { from: 90, via: 85, to: 80 },
+      /** Radial glow color (oklch or hex) for top-left glow */
+      radialGlow1: "oklch(0.72_0.07_155/0.2)",
+      /** Radial glow color for bottom-right glow */
+      radialGlow2: "oklch(0.62_0.1_35/0.1)",
+      /** Text shadow glow color (rgba) for hero title highlight */
+      titleGlow: "rgba(90,158,118",
+    },
   },
 
   /** Footer tagline */
